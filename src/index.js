@@ -1,7 +1,6 @@
 import express from "express"; //Importa os módulos do Expres
 import cors from "cors";       //Importa os módulos do Cors
-import { executeQuery } from "./config/database.js";
-// Importe o módulo CommonJS usando a sintaxe de importação padrão do ES6
+import { executeQuery } from "./config/database.js"; //Importa a função de database.js
 import * as dotenv from 'dotenv'
 import jwt from 'jsonwebtoken';
 import fs from 'fs'
@@ -34,7 +33,7 @@ app.post('/logout', function(req, res) {
 app.post('/login', (req, res, next) => {
     //Lembrando que esta função seria feita atraves de uma consulta no banco de dados para retornar valores corretos
     if(req.body.user == 'teste' && req.body.password == '123'){  //Na requisicao, no body User = é setado como predefinido um usuario que eja igual a estes juntamente com a senha
-        console.log("Chegou awqui") //Para testar erros que ocorream antes de executar as linhas de codigo abaixo
+       // console.log("Chegou awqui") //Para testar erros que ocorream antes de executar as linhas de codigo abaixo
       //auth ok
       const id = 1; //esse id viria do banco de dados - No caso ID e CPF
       //console.log(process.env.SECRET) //Aqui retorna o valor da SECRET KEY para utilizar na crfiação do JWT. Somente para console e uso de testes
@@ -43,7 +42,7 @@ app.post('/login', (req, res, next) => {
         expiresIn: 99999, // expira em 5min
         algorithm:  "RS256"  // Tipo de algorítimo para fazer a decodificação das chaves com token
       });
-      console.log("Um usuário fez login no servidor e foi gerado um Token com validade de 300s")
+      console.log("Um usuário fez login no servidor e foi gerado um Token com validade de 99999s")
       console.log("token gerado: ", token)
       return res.json({ auth: true, token: token }); //Aqui se deu tudo certo retona informações ao usuario de que Auth = true ou seja, está autenticado no servidor
     }
