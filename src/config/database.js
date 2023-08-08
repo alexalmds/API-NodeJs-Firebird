@@ -4,12 +4,12 @@ import firebird from "node-firebird";  //Importa o modulo de conexão com banco 
 const dbOptions = {
     host : 'localhost',
     port : 3050,
-    database : 'D:\\NJSDBTESTE.fdb',
+    database : 'C:\\SEU\\CAMINHO\\DO\\BANCO_AQUI.FDB',
     user : 'SYSDBA',
     password : 'masterkey',
-    lowercase_keys : false, 
-    role : null,            
-    pageSize : 4096        
+    lowercase_keys : false, //Por padrão, seta tudo como MAIUSCULO
+    role : null, //Regras do seu banco de dados, Default: null           
+    pageSize : 4096  //Default value      
 }
 
 
